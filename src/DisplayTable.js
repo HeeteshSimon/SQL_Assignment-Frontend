@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import { Table, Button, Modal, Form } from 'react-bootstrap';
+import { Table, Button, Modal, Form, Alert } from 'react-bootstrap';
 import axios from 'axios';
 
 export default function DisplayTable(props) {
     const [subject1, setSubject1] = useState([]);
     const [subject2, setSubject2] = useState([]);
     const [subject3, setSubject3] = useState([]);
+    const [average, setAverage] = useState([]);
     const [id, setId] = useState();
     const [name, setName] = useState([]);
     const [updateData, setUpdateData] = useState();
@@ -29,6 +30,7 @@ export default function DisplayTable(props) {
             console.log(JSON.parse(response.data.subject1))
             setSubject2(JSON.parse(response.data.subject2));
             setSubject3(JSON.parse(response.data.subject3)); 
+            setAverage(JSON.parse(response.data.average));
           })
           .catch((error) => {
             console.log(error);
@@ -103,6 +105,8 @@ export default function DisplayTable(props) {
       <th>Subject 1</th>
       <th>Subject 2</th>
       <th>Subject 3</th>
+      <th>Average</th>
+      <th>Result</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -114,6 +118,8 @@ export default function DisplayTable(props) {
               <td>{subject1[index]}</td>
               <td>{subject2[index]}</td>
               <td>{subject3[index]}</td>
+              <td>{average[index]}</td>
+              <td><Alert variant={average[index]>=50?"success":"danger"}>{average[index]>=50?"Pass":"Fail"}</Alert></td>
               <td><Button variant="warning" onClick={(e)=>upDatebyId(e,ID)}>Update</Button>&nbsp;&nbsp;<Button variant="danger" onClick={(e)=>deleteById(e,ID)}>Delete</Button></td>
               </tr>
 
