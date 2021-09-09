@@ -118,7 +118,7 @@ export default function DisplayTable(props) {
               <td>{subject1[index]}</td>
               <td>{subject2[index]}</td>
               <td>{subject3[index]}</td>
-              <td>{average[index]}</td>
+              <td>{Math.floor(average[index])}</td>
               <td><Alert variant={average[index]>=50?"success":"danger"}>{average[index]>=50?"Pass":"Fail"}</Alert></td>
               <td><Button variant="warning" onClick={(e)=>upDatebyId(e,ID)}>Update</Button>&nbsp;&nbsp;<Button variant="danger" onClick={(e)=>deleteById(e,ID)}>Delete</Button></td>
               </tr>
