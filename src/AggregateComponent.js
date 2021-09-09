@@ -50,7 +50,7 @@ export default function AggregateComponent() {
                <Col xs="auto">
                    <Button onClick={onClickAggregateBtn}>Submit</Button>
                    </Col>
-                { value && 'Result: '+value}
+                { value && 'Result: '+Math.floor(value)}
                </Row>
         </div>
     )

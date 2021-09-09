@@ -15,6 +15,7 @@ function App() {
      <AddUser show={show} setShow={setShow} />
      {/* <UpdateModal show={showUpdateModal} setShow={setShowUpdateModal} /> */}
      <DisplayTable />
+     <hr />
      <AggregateComponent />
     </Container>
   );
