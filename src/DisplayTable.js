@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { Table, Button, Modal, Form, Alert } from 'react-bootstrap';
 import axios from 'axios';
+import { CSVLink } from "react-csv";
 
 export default function DisplayTable(props) {
     const [subject1, setSubject1] = useState([]);
@@ -17,6 +18,7 @@ export default function DisplayTable(props) {
     const [Subject1Update, setSubject1Update] = useState();
     const [Subject2Update, setSubject2Update] = useState();
     const [Subject3Update, setSubject3Update] = useState();
+    const [csvData, setCSVData] = useState([["Name", "Subject1", "Subject2", "Subject3", "Average"],]);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -31,6 +33,11 @@ export default function DisplayTable(props) {
             setSubject2(JSON.parse(response.data.subject2));
             setSubject3(JSON.parse(response.data.subject3)); 
             setAverage(JSON.parse(response.data.average));
+            console.log("length",JSON.parse(response.data.name).length, "testdata", JSON.parse(response.data.name)[0])
+            for(let i = 0; i < JSON.parse(response.data.name).length; i++){
+                setCSVData(csvData => [csvData, [JSON.parse(response.data.name)[i], JSON.parse(response.data.subject1)[i], JSON.parse(response.data.subject2)[i], JSON.parse(response.data.subject3)[i], JSON.parse(response.data.average)[i]]]);
+            }
+            console.log(csvData);
           })
           .catch((error) => {
             console.log(error);
@@ -174,6 +181,8 @@ export default function DisplayTable(props) {
         </Modal.Footer>
           </Form>
       </Modal>
+     
+    <CSVLink style={{marginLeft: '40%', marginTop: '1%', marginBottom: '1%'}} className="btn btn-primary" data={csvData}>Download as CSV</CSVLink>
         </div>
     )
 }

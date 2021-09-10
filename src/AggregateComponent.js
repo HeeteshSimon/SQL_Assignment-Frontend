@@ -29,7 +29,7 @@ export default function AggregateComponent() {
     }
 
     return (
-        <div>
+        <div style={{marginBottom: '2%'}}>
             <Row>
             <Col xs="auto">
            <select className="me-sm-2" name="function" className="form-control" onChange={onChangeFunctionDropDown}>
