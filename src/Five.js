@@ -38,7 +38,7 @@ export default function Five() {
     }
     return (
         <div>
-            <Button variant="success" onClick={topFive}>Top Five</Button>
+            <Button variant="success" onClick={topFive}>Top Five</Button>&nbsp;&nbsp;
             <Button variant="warning" onClick={bottomFive}>Bottom Five</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
