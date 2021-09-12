@@ -7,10 +7,12 @@ export default function Five() {
     const [subject1, setSubject1] = useState([]);
     const [subject2, setSubject2] = useState([]);
     const [subject3, setSubject3] = useState([]);
+    const [type, setType] = useState();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const topFive = (e) =>{
         e.preventDefault();
+        setType("Top Five");
         axios.get(`http://localhost:8080/sqlartifact/five/DESC`)
         .then(res => {
             console.log(res.data);
@@ -26,6 +28,7 @@ export default function Five() {
     }
     const bottomFive = (e) =>{
         e.preventDefault();
+        setType("Bottom Five");
         axios.get(`http://localhost:8080/sqlartifact/five/ASC`)
         .then(res => {
             console.log(res.data);
@@ -42,7 +45,7 @@ export default function Five() {
             <Button variant="warning" onClick={bottomFive}>Bottom Five</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Add Data</Modal.Title>
+                    <Modal.Title>{type}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                 <Table striped bordered hover>
