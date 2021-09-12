@@ -6,10 +6,12 @@ import DisplayTable from './DisplayTable';
 import AddUser from './AddUser';
 import AggregateComponent from './AggregateComponent';
 import Five from './Five';
+import Filter from './Filter'
 
 function App() {
   const [show, setShow] = useState(false);
   const [showUpdateModal, setShowUpdateModal] = useState(false);
+  const [showFilterModal, setShowFilterModal] = useState(false);
   return (
     <Container>
       <Row>
@@ -23,6 +25,8 @@ function App() {
      <AddUser show={show} setShow={setShow} />
      <DisplayTable />
      <Five />
+     <Button style={{marginTop: '1.8%', marginLeft: '2.2%'}} variant="secondary" onClick={()=>setShowFilterModal(true)}>Apply Filters</Button>
+     <Filter show={showFilterModal} setShow={setShowFilterModal}/>
      <hr />
      <AggregateComponent />
     </Container>
