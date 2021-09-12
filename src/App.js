@@ -1,7 +1,6 @@
 import './App.css';
 import React, {useState} from 'react';
 import { Container, Button, Col, Row} from 'react-bootstrap'
-import { CSVLink, CSVDownload } from "react-csv";
 
 import DisplayTable from './DisplayTable';
 import AddUser from './AddUser';

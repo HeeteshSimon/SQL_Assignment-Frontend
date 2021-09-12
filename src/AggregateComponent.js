@@ -32,7 +32,7 @@ export default function AggregateComponent() {
         <div style={{marginBottom: '2%'}}>
             <Row>
             <Col xs="auto">
-           <select className="me-sm-2" name="function" className="form-control" onChange={onChangeFunctionDropDown}>
+           <select className="me-sm-2 form-control" name="function" onChange={onChangeFunctionDropDown}>
                 <option value="" selected disabled>Select Functionality</option>
                <option value="avg">Average</option>
                <option value="min">Minimum</option>
