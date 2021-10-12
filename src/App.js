@@ -21,7 +21,7 @@ function App() {
       <Col xs="auto">
        <Button variant="primary" style={{marginTop: "3.5%", float: 'right'}} onClick={() => { setShowUpdateModal(true) }}>Update</Button>
       </Col>
-{* Making changes just to get hacktober goodies *}
+{* Making changes just to get hacktober goodies have to make a new branch itseems *}
        </Row>
      <AddUser show={show} setShow={setShow} />
      <DisplayTable />
